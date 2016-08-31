@@ -125,6 +125,6 @@ def scottmiller_send(*message):
     answers = ('This is Captain Scott Miller, Royal Navy. Next time, avoid broadcasting over the whole net, soldier.',)
     message[0].send(answers[randrange(0, len(answers))])
 
-@listen_to(r'(?:\W|^)(John Miller|Scott Kerry)(?:\W|$)', re.IGNORECASE)
+@listen_to(r'(?:\W|^)(John Miller|Scott Kerry|Scott Millah)(?:\W|$)', re.IGNORECASE)
 def johnmiller_send(*message):
     message[0].react('unamused')
