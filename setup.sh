@@ -1,13 +1,15 @@
-echo "This script will install/update Miller Slackbot."
-echo "Warning! python 3 and virtualenv must be installed on your 
+echo "--> This script will install/update Miller Slackbot."
+echo "--> Warning! python 3 and virtualenv must be installed on your 
 machine."
-echo "Updating slackbot-miller from git"
+echo "--> Updating slackbot-miller from git"
 git pull
-echo "Creating VirtualEnv .env"
+echo "--> Creating VirtualEnv .env"
 virtualenv .env
-echo "Entering .env"
+echo "--> Entering VirtualEnv"
 source .env/bin/activate
-pip install slackbot
+echo "--> Installing Python plugins"
+pip install --upgrade slackbot
+echo "--> Leaving VirtualEnv"
 deactivate
-echo "End of installation."
-echo "Done."
+echo "--> End of installation."
+echo "--> Done."
