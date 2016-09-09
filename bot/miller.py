@@ -84,7 +84,7 @@ def feelbad_reply(*message):
 @respond_to(r'(?:\W|^)(SITREP)(?:\W|$)', re.IGNORECASE)
 def sitrep_reply(*message):
     sleep(1)
-    answers = ('Grid {0:06d}'.format(randrange(0, 999999)))
+    answers = ('Grid {0:06d}'.format(randrange(0, 999999)),)
     answer = answers[randrange(0, len(answers))]
     debug_bot(functype='respond_to', message=message[0], answer=answer)
     message[0].reply(answer)
@@ -97,13 +97,13 @@ def time_reply(*message):
     debug_bot(functype='respond_to', message=message[0], answer=answer)
     message[0].reply(answer)
 
-@respond_to(r'(?:\W|^)(why|what|when|where|who|whose|how|quoi|qui|où|quand|comment|combien|quel[les]{0,3})(?:\W|$)', re.IGNORECASE)
-def question_reply(*message):
-    sleep(1)
-    answers = ('Question time\'s over!', 'No time for questions.')
-    answer = answers[randrange(0, len(answers))]
-    debug_bot(functype='respond_to', message=message[0], answer=answer)
-    message[0].reply(answer)
+# @respond_to(r'(?:\W|^)(why|what|when|where|who|whose|how|quoi|qui|où|quand|comment|combien|quel[les]{0,3})(?:\W|$)', re.IGNORECASE)
+# def question_reply(*message):
+#     sleep(1)
+#     answers = ('Question time\'s over!', 'No time for questions.')
+#     answer = answers[randrange(0, len(answers))]
+#     debug_bot(functype='respond_to', message=message[0], answer=answer)
+#     message[0].reply(answer)
 
 @respond_to(r'(?:\W|^)(Scott Miller|Falcon|Keystone)(?:\W|$)', re.IGNORECASE)
 def callsign_reply(*message):
@@ -145,6 +145,7 @@ def disrepect_send(*message):
 def confidential_send(*message):
     sleep(1)
     answers = ('You\'re not supposed to talk about it.', 'This information is classified!')
+    answer = answers[randrange(0, len(answers))]
     debug_bot(functype='listen_to', message=message[0], answer=answer)
     message[0].send(answer)
 
@@ -156,6 +157,7 @@ def dead_send(*message):
     message[0].react(reaction)
     sleep(1)
     answers = ('Man down!', 'We lost one!', 'He\'s hit!', 'Fuck, man down!')
+    answer = answers[randrange(0, len(answers))]
     debug_bot(functype='listen_to', message=message[0], answer=answer)
     message[0].send(answer)
 
@@ -163,10 +165,11 @@ def dead_send(*message):
 def scottmiller_send(*message):
     sleep(1)
     answers = ('This is Captain Scott Miller, Royal Navy. Next time, avoid broadcasting over the whole net, soldier.',)
+    answer = answers[randrange(0, len(answers))]
     debug_bot(functype='listen_to', message=message[0], answer=answer)
     message[0].send(answer)
 
-@listen_to(r'(?:\W|^)(John Miller|Scott Kerry|Scott Millah)(?:\W|$)', re.IGNORECASE)
+@listen_to(r'(?:\W|^)(John Miller|Scott Kerry|Millah)(?:\W|$)', re.IGNORECASE)
 def johnmiller_send(*message):
     reactions = ('unamused',)
     reaction = reactions[randrange(0, len(reactions))]
