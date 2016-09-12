@@ -25,7 +25,7 @@ def hello_reply(*message):
     debug_bot(functype='respond_to', message=message[0], answer=answer)
     message[0].reply(answer)
 
-@respond_to(r'(?:\W|^)(goodbye|good night|byebye|bye|see you|cheers|have a nice day|au revoir|[aà]{1} plus|[aà]{1}\+|\+\+|[aà]{1} bientôt|[aà]{1} la prochaine|[aà]{1} la revoyure|allez salut|bon salut|bonne nuit|adieu|ciao|tchao)(?:\W|$)', re.IGNORECASE)
+@respond_to(r'(?:\W|^)(goodbye|good night|byebye|bye|see you|cheers|have a nice day|au revoir|[aà]{1} plus|[aà]{1}\+|\+\+|[aà]{1} bientôt|[aà]{1} la prochaine|[aà]{1} la revoyure|allez[,]{0,1} salut|bon[,]{0,1} salut|bonne nuit|adieu|ciao|tchao|me tire)(?:\W|$)', re.IGNORECASE)
 def goodbye_reply(*message):
     sleep(1)
     answers = ('See you soon.', 'Roger, out.', 'Goodbye.', 'Try to still alive.',)
@@ -129,7 +129,7 @@ def syndikat_send(*message):
     debug_bot(functype='listen_to', message=message[0], answer=answer)
     message[0].send(answer)
 
-@listen_to(r'(?:\W|^)(bastard[s]{0,1}|dick[s]{0,1}|ass[es]{0,2}|shut up|fuck[a-z]{0,3}|bi[a]{0,1}tch[a-z]{0,2}|shit|cul[s]{0,1}|bite[s]{0,1}|anus|con[s]{0,1}|conne[s]{0,1}|connard[s]{0,1}|connasse[s]{0,1}|bolosse[s]{0,1}|salaud[s]{0,1}|salope[s]{0,1}|encul[a-zé]{1,3}|niqu[a-zé]{1,3}|bais[a-zé]{1,3}|chi[eérs]{1,3}|chiant[s]{0,1}|pute[s]{0,1}|batard[a-z]{0,2}|gueule[s]{0,1}|pd|tg|ftg|fdp|ptn|putain[s]{0,1}|couille[s]{0,1}|merd[a-zé]{1,2})(?:\W|$)', re.IGNORECASE)
+@listen_to(r'(?:\W|^)(bastard[s]{0,1}|dick[s]{0,1}|ass[es]{0,2}|shut up|fuck[a-z]{0,3}|bi[a]{0,1}tch[a-z]{0,2}|shit|cul[s]{0,1}|bite[s]{0,1}|anus|con[s]{0,1}|conne[s]{0,1}|connard[s]{0,1}|connasse[s]{0,1}|bolosse[s]{0,1}|salaud[s]{0,1}|salope[s]{0,1}|encul[a-zé]{1,3}|niqu[a-zé]{1,3}|bais[a-zé]{1,3}|chi[eérs]{1,3}|chiant[s]{0,1}|pute[s]{0,1}|batard[a-z]{0,2}|gueule[s]{0,1}|pd|tg|ftg|fdp|ptn|ntm|putain[s]{0,1}|couille[s]{0,1}|merd[a-zé]{1,2})(?:\W|$)', re.IGNORECASE)
 def disrepect_send(*message):
     reactions = ('rage',)
     reaction = reactions[randrange(0, len(reactions))]
