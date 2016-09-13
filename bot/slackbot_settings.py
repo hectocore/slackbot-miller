@@ -5,7 +5,9 @@ import os
 DEBUG = False
 
 PLUGINS = [
-    'miller',
+    'talk',
+    'armaverse',
+    'channels',
 ]
 
 ERRORS_TO = None
