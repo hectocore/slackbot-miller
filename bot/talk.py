@@ -20,7 +20,23 @@ def default_hanlder(message):
 @respond_to(r'(?:\W|^)(hey|hi|hello|good morning|good afternoon|good evening|salut|salutation[s]{0,1}|coucou|bonjour|bonsoir)(?:\W|$)', re.IGNORECASE)
 def talk_hello_reply(*message):
     sleep(1)
-    answers = ('Good to see you.', 'Glad to see you\'re still alive.', 'I thought you were dead.', 'It\'s good to hear from you.', 'Ah, soldier. You certainly do have the tendency to show up unexpectedly', 'There you are, soldier!')
+    answers = ('Good to see you.', 'Glad to see you\'re still alive.', 'I thought you were dead.', 'It\'s good to hear from you.', 'Ah, soldier. You certainly do have the tendency to show up unexpectedly.', 'There you are, soldier!')
+    answer = answers[randrange(0, len(answers))]
+    debug_bot(functype='respond_to', message=message[0], answer=answer)
+    message[0].reply(answer)
+
+@respond_to(r'(?:\W|^)(Yes|I agree|affirmative|^Ok[\.\!\s]{0,3}$|Roger|[O]{0,1}ui|(?!pas\s)d\'accord|Bien reçu)(?:\W|$)', re.IGNORECASE)
+def talk_agree_reply(*message):
+    sleep(1)
+    answers = ('Copy, out.', 'Good soldier. Falcon, out.', 'Copy soldier, out.')
+    answer = answers[randrange(0, len(answers))]
+    debug_bot(functype='respond_to', message=message[0], answer=answer)
+    message[0].reply(answer)
+
+@respond_to(r'(?:\W|^)(No|I disagree|negative|cannot comply|Non|pas d\'accord|négatif|impossible)(?:\W|$)', re.IGNORECASE)
+def talk_agree_reply(*message):
+    sleep(1)
+    answers = ('Negative? That\'s an order.', 'Negative? Are you kidding soldier?', 'I hope it\'s a joke.', 'That\'s an order!',)
     answer = answers[randrange(0, len(answers))]
     debug_bot(functype='respond_to', message=message[0], answer=answer)
     message[0].reply(answer)
@@ -49,7 +65,7 @@ def talk_howreyou_reply(*message):
     debug_bot(functype='respond_to', message=message[0], answer=answer)
     message[0].reply(answer)
 
-@respond_to(r'(?:\W|^)(I love you|je t\'aime(?!\spas))(?:\W|$)', re.IGNORECASE)
+@respond_to(r'(?:\W|^)(I love you|je t\'aime(?!\spas)|es (?!pas)(?![\sa-zéèêô]{0,15}pas\s)[\sa-zéèêô]{0,15}gentil|es (?!pas)(?![\sa-zéèêô]{0,15}pas\s)[\sa-zéèêô]{0,15}sympa|es [\sa-zéèêô]{0,15}pas méchant)(?:\W|$)', re.IGNORECASE)
 def talk_loveyou_reply(*message):
     sleep(1)
     answers = ('Good to hear, soldier.', 'I like you, soldier.',)
@@ -73,7 +89,7 @@ def talk_disrespect_reply(*message):
     debug_bot(functype='respond_to', message=message[0], answer=answer)
     message[0].reply(answer)
 
-@respond_to(r'(?:\W|^)(I hate you|I didn\'t like you|je t\'aime pas|je te déteste|je te hais)(?:\W|$)', re.IGNORECASE)
+@respond_to(r'(?:\W|^)(I hate you|I don\'t like you|I didn\'t like you|je t\'aime pas|je te déteste|je te hais(?!\spas)|es (?!pas)(?![\sa-zéèêô]{0,15}pas\s)[\sa-zéèêô]{0,15}nul|[are]{2,3} bad|[are]{2,3} nasty|es (?!pas)(?![\sa-zéèêô]{0,15}pas\s)[\sa-zéèêô]{0,15}méchant[s]{0,1}|es (?!pas)(?![\sa-zéèêô]{0,15}pas\s)[\sa-zéèêô]{0,15}mauvais|es [\sa-zéèêô]{0,15}pas sympa[s]{0,1}|es [\sa-zéèêô]{0,15}pas gentil)(?:\W|$)', re.IGNORECASE)
 def talk_hateyou_reply(*message):
     sleep(1)
     answers = ('Keep your thoughts to yourself, soldier.', 'I don\'t care about your feelings, soldier.', 'Things are about to get ugly.', )
@@ -81,7 +97,7 @@ def talk_hateyou_reply(*message):
     debug_bot(functype='respond_to', message=message[0], answer=answer)
     message[0].reply(answer)
 
-@respond_to(r'(?:\W|^)(bastard[s]{0,1}|puss[yies]{1,3}|dick[s]{0,1}|ass[es]{0,2}|shut up|fuck[a-z]{0,3}|bi[a]{0,1}tch[a-z]{0,2}|shit|cul[s]{0,1}|bite[s]{0,1}|anus|con[s]{0,1}|conne[s]{0,1}|connard[s]{0,1}|connasse[s]{0,1}|bolosse[s]{0,1}|salaud[s]{0,1}|salope[s]{0,1}|encul[a-zé]{1,3}|niqu[éerzs]{1,3}|bais[a-zé]{1,3}|chi[eérs]{1,3}|chiant[s]{0,1}|pute[s]{0,1}|batard[a-z]{0,2}|gueule[s]{0,1}|pd|tg|ftg|fdp|ptn|ntm|putain[s]{0,1}|couille[s]{0,1}|merd[a-zé]{1,2})(?:\W|$)', re.IGNORECASE)
+@respond_to(r'(?:\W|^)(bastard[s]{0,1}|puss[yies]{1,3}|dick[s]{0,1}|ass[es]{0,2}|shut up|fuck[a-z]{0,3}|bi[a]{0,1}tch[a-z]{0,2}|shit|cul[s]{0,1}|bite[s]{0,1}|anus|con[s]{0,1}|conne[s]{0,1}|connard[s]{0,1}|connasse[s]{0,1}|bolosse[s]{0,1}|salaud[s]{0,1}|salope[s]{0,1}|encul[a-zé]{1,3}|niqu[éerzs]{1,3}|bais[a-zé]{1,3}|chi[eérs]{1,3}|chiant[s]{0,1}|pute[s]{0,1}|batard[a-z]{0,2}|gueule[s]{0,1}|pd|tg|ftg|fdp|ptn|ntm|putain[s]{0,1}(?!\sde fant[ôo]{1}me[s]{0,1})|couille[s]{0,1}|merd[a-zé]{1,2}|ta m[eè]{1}re|vos m[eè]{1}res)(?:\W|$)', re.IGNORECASE)
 def talk_dirty_reply(*message):
     sleep(1)
     answers = ('Don\'t talk that way, soldier. That\'s an order!', 'Watch your language, soldier!', 'Soldier, I swear, once more and I\'ll drop you where you stand.', 'You\'d do well to refrain from threatening me.', 'You\'re doing it again, soldier.')
@@ -113,7 +129,7 @@ def talk_problem_reply(*message):
     debug_bot(functype='respond_to', message=message[0], answer=answer)
     message[0].reply(answer)
 
-@respond_to(r'(?:\W|^)([a\'is]{1,2} bad|nasty|méchant[s]{0,1}|mauvais|pas sympa[s]{0,1}|pas gentil[sle]{0,3})(?:\W|$)', re.IGNORECASE)
+@respond_to(r'(?:\W|^)([is]{1,2} bad|[is]{1,2} nasty|est [\sa-zéèêô]{0,15}méchant[s]{0,1}|est [\sa-zéèêô]{0,15}mauvais|est [\sa-zéèêô]{0,15}pas sympa[s]{0,1}|est pas [\sa-zéèêô]{0,15}gentil[sle]{0,3})(?:\W|$)', re.IGNORECASE)
 def talk_complaint_reply(*message):
     sleep(1)
     answers = ('That\'s your opinion.', 'Perfection doesn\'t exist in this world.', 'I disagree.', 'Sorry, but I do not agree with you.', 'I agree.',)
@@ -121,7 +137,7 @@ def talk_complaint_reply(*message):
     debug_bot(functype='respond_to', message=message[0], answer=answer)
     message[0].reply(answer)
 
-@respond_to(r'(?:\W|^)(feel[ing]{0,3} bad|sad|melancholic|[\'a]{1}m crying|I cry|suis [trop]{0,4}[\s]{0,1}triste|je pleure|de pleurer|me sens [trop]{0,4}[\s]{0,1}mal)(?:\W|$)', re.IGNORECASE)
+@respond_to(r'(?:\W|^)(feel[ing]{0,3} bad|sad|melancholic|[\'a]{1}m crying|I cry|suis (?!pas)(?![\sa-zéèêô]{0,15}pas\s)[\sa-zéèêô]{0,15}triste|me rends (?!pas)(?![\sa-zéèêô]{0,15}pas\s)[\sa-zéèêô]{0,15}triste|je pleure(?!\spas)|de pleurer|vais (?!pas\s)pleurer|me sens (?!pas)(?![\sa-zéèêô]{0,15}pas\s)[\sa-zéèêô]{0,15}mal|vais pas bien)(?:\W|$)', re.IGNORECASE)
 def talk_feelbad_reply(*message):
     sleep(1)
     answers = ('Don\'t give up!', 'It will be fine.', 'Things will get better.', 'You did what you could.', 'I know things don\'t look good for us right now. We took a hit. We lost a number of good men.',)

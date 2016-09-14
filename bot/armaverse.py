@@ -41,7 +41,15 @@ def arma_reinforcements_reply(*message):
     debug_bot(functype='respond_to', message=message[0], answer=answer)
     message[0].reply(answer)
 
-@respond_to(r'(?:\W|^)(Syndikat[s]{0,1}|Putain[s]{0,1} de fantôme[s]{0,1}|Solomon Maru)(?:\W|$)', re.IGNORECASE)
+@respond_to(r'(?:\W|^)(Contact[s]{0,1}|Enem[yies]{1,3}|Under fire)(?:\W|$)', re.IGNORECASE)
+def arma_contact_reply(*message):
+    sleep(1)
+    answers = ('Open fire!', 'Engage at will!', 'Fire at will!', 'Weapons free!',)
+    answer = answers[randrange(0, len(answers))]
+    debug_bot(functype='respond_to', message=message[0], answer=answer)
+    message[0].reply(answer)
+
+@respond_to(r'(?:\W|^)(Syndikat[s]{0,1}|Putain[s]{0,1} de fant[ôo]{1}me[s]{0,1}|Solomon Maru)(?:\W|$)', re.IGNORECASE)
 def arma_syndikat_reply(*message):
     sleep(1)
     answers = ('Please don\'t talk about those fucking Syndikats...', 'I spent enough time with those guys to tell you I do not like them.', 'You remember me bad moments.')
