@@ -16,6 +16,3 @@ Clone this repository and then execute inside his folder:
 Execute: `./run.sh`
 
 (If you use it for your own Slack, don't forget to enter your bot `API_TOKEN` in bot/slackbot_settings.py.
-
-## Customization
-Edit `miller.py` to customize Miller.
